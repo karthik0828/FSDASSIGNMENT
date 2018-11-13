@@ -56,7 +56,7 @@ public class BookController {
 		return new ModelAndView("addBook", "command", new Book());
 	}
 
-	@RequestMapping(value = "/saveBook", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/saveBook", method = RequestMethod.POST)
 	public ModelAndView saveBook(@ModelAttribute("book") Book book, BindingResult result, Model model) {
 		try {
 			bookAppService.add(book, book.getSubject().getSubtitle());
@@ -64,14 +64,14 @@ public class BookController {
 			e.printStackTrace();
 		}
 		return new ModelAndView("redirect:/view");
-	}
+	}*/
 
 	@RequestMapping("/searchBookForm")
 	public ModelAndView searchBookForm() {
 		return new ModelAndView("searchBookForm", "command", new Book());
 	}
 	
-	@RequestMapping("/searchBookByTitle")
+/*	@RequestMapping("/searchBookByTitle")
 	public ModelAndView searchBookByTitle() {
 		return new ModelAndView("searchBookByTitle", "command", new Book());
 	}
@@ -96,7 +96,7 @@ public class BookController {
 			e.printStackTrace();
 		}
 		return new ModelAndView("searchBook");
-	}
+	}*/
 	
 
 	
@@ -105,7 +105,7 @@ public class BookController {
 		return new ModelAndView("searchSubjectForm", "command", new Subject());
 	}
 
-	@RequestMapping("/searchSubjectByDuration")
+/*	@RequestMapping("/searchSubjectByDuration")
 	public ModelAndView searchSubjectByDuration() {
 		return new ModelAndView("searchSubjectByDuration", "command", new Subject());
 	}
@@ -131,7 +131,7 @@ public class BookController {
 			e.printStackTrace();
 		}
 		return new ModelAndView("searchSubject", "booksbysubject", booksbysubject);
-	}
+	}*/
 
 
 	private void getBooksBySubject(List<Book> booksbysubject, Subject subj) {
@@ -146,7 +146,7 @@ public class BookController {
 		return new ModelAndView("deleteBook", "command", new Book());
 	}
 
-	@RequestMapping("/delBook")
+/*	@RequestMapping("/delBook")
 	public ModelAndView delBook(@ModelAttribute("book") Book book, BindingResult result, Model model) {
 		List<Book> booklist = null;
 
@@ -157,7 +157,7 @@ public class BookController {
 			e.printStackTrace();
 		}
 		return new ModelAndView("view", "booklist", booklist);
-	}
+	}*/
 
 
 	@RequestMapping("/deleteSubject")
@@ -178,8 +178,9 @@ public class BookController {
 		}
 		return new ModelAndView("view", "booklist", booklist);
 	}
+	// other version..
 	
-	/*	@RequestMapping(value="/searchBookByTitle", method = RequestMethod.GET)
+	@RequestMapping(value="/searchBookByTitle", method = RequestMethod.GET)
 	public ModelAndView searchBookByTitle(@RequestParam("title") String title, Model model) {
 		try {
 			Book sbook = null;
@@ -262,6 +263,6 @@ public class BookController {
 			e.printStackTrace();
 		}
 		return new ModelAndView("view");
-	}*/
+	}
 
 }
